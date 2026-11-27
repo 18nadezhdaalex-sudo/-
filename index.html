@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Оргструктура Life</title>
+  <meta name="description" content="Целевая оргструктура страховой компании Life (до 400 сотрудников): базовый сценарий и автоматизация 30%">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top__inner">
+      <div>
+        <p class="eyebrow">Страхование жизни · Республика Казахстан</p>
+        <h1>Оргструктура страховой компании Life</h1>
+        <p class="lead" id="lead"></p>
+      </div>
+      <button class="theme-btn" id="themeBtn" type="button" aria-label="Переключить тему">◐</button>
+    </div>
+    <nav class="wrap nav" aria-label="Разделы">
+      <a href="#kpi">Итоги</a>
+      <a href="#org">Оргструктура</a>
+      <a href="#blocks">Блоки</a>
+      <a href="#positions">Должности</a>
+      <a href="#units">Подразделения</a>
+      <a href="#branches">Филиалы</a>
+      <a href="#practices">Практики</a>
+      <a href="#law">Законодательство</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <p class="note">Все численности и должности — экспертная модель, а не данные конкретной компании. Ссылки на нормативные акты требуют сверки юристом с действующими редакциями.</p>
+
+    <section id="kpi" class="section">
+      <div class="kpis" id="kpis"></div>
+    </section>
+
+    <section id="org" class="section">
+      <h2>Органы управления и кураторы</h2>
+      <div class="gov">
+        <div class="gov__node">Общее собрание акционеров</div>
+        <div class="gov__arrow">↓</div>
+        <div class="gov__node gov__node--strong">Совет директоров <span>не менее 1/3 независимых</span></div>
+        <div class="gov__row">
+          <div class="gov__node gov__node--small">Комитеты: аудит · риски · кадры и вознаграждения · стратегия</div>
+          <div class="gov__node gov__node--small">Корпоративный секретарь</div>
+          <div class="gov__node gov__node--small">Служба внутреннего аудита</div>
+        </div>
+        <div class="gov__arrow">↓</div>
+        <div class="gov__node gov__node--strong">Правление <span>Председатель + 3 заместителя</span></div>
+      </div>
+      <div class="curators" id="curators"></div>
+    </section>
+
+    <section id="blocks" class="section">
+      <h2>Штат по функциональным блокам</h2>
+      <div class="legend"><span class="sw sw--base"></span>База <span class="sw sw--auto"></span>Автоматизация 30%</div>
+      <div class="bars" id="blockBars"></div>
+    </section>
+
+    <section id="positions" class="section">
+      <h2>Должности по подразделениям</h2>
+      <div class="filters">
+        <label>Подразделение
+          <select id="fDept"><option value="">Все подразделения</option></select>
+        </label>
+        <label>Поиск
+          <input id="fSearch" type="search" placeholder="Должность или комментарий">
+        </label>
+        <label class="check"><input id="fChanged" type="checkbox"> Только изменения</label>
+        <label class="check"><input id="fReg" type="checkbox"> Только регуляторные</label>
+      </div>
+      <p class="muted" id="posSummary"></p>
+      <div class="table-wrap">
+        <table class="tbl" id="posTable">
+          <thead><tr><th>Должность</th><th>Подразделение</th><th class="num">База</th><th class="num">Авто</th><th class="num">Δ</th><th>Основание</th><th>Что автоматизируется / комментарий</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="units" class="section">
+      <h2>Подразделения, лучшие практики и правовая основа</h2>
+      <div class="table-wrap">
+        <table class="tbl" id="unitTable">
+          <thead><tr><th>Подразделение</th><th>Куратор</th><th class="num">База → Авто</th><th>Лучшая практика</th><th>Основание (РК)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="branches" class="section">
+      <h2>Филиальная сеть</h2>
+      <div class="seg" role="tablist" id="branchScenario">
+        <button type="button" class="is-on" data-v="base">База</button>
+        <button type="button" data-v="auto">Автоматизация 30%</button>
+      </div>
+      <div class="legend" id="roleLegend"></div>
+      <div class="stack" id="branchBars"></div>
+      <div class="table-wrap">
+        <table class="tbl" id="branchTable">
+          <thead><tr><th>Город</th><th>Регион</th><th>Тип</th><th class="num">Директор</th><th class="num">Рук. агентских групп</th><th class="num">Банки и корп.</th><th class="num">Аннуитеты</th><th class="num">Сервис</th><th class="num">Всего</th></tr></thead>
+          <tbody></tbody>
+          <tfoot></tfoot>
+        </table>
+      </div>
+    </section>
+
+    <section id="practices" class="section">
+      <h2>Лучшие практики</h2>
+      <div class="seg" id="practiceScope">
+        <button type="button" class="is-on" data-v="">Все</button>
+        <button type="button" data-v="world">Мир</button>
+        <button type="button" data-v="kz">Казахстан</button>
+      </div>
+      <div class="cards" id="practiceCards"></div>
+    </section>
+
+    <section id="law" class="section">
+      <h2>Требования законодательства и АРРФР</h2>
+      <div class="table-wrap">
+        <table class="tbl" id="lawTable">
+          <thead><tr><th>Область</th><th>Нормативный акт</th><th>Подразделения</th><th>Что требуется</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="note">Требует проверки юристом: нужно ли согласие АРРФР при назначении CRO, главного комплаенс-контролёра и руководителя СВА (ст. 34 Закона); номера и действующие редакции постановлений АРРФР.</p>
+    </section>
+  </main>
+
+  <footer class="wrap foot">Источник данных: PRD.md → <code>scripts/build-data.ps1</code> → <code>data/*.json</code></footer>
+
+  <script src="data/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
